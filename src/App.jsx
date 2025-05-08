@@ -24,6 +24,27 @@ function App() {
   const ETHERSCAN_API_KEY = 'WEJH56FVVWXJB9T3P7N5UKE3D5PXDZDQBF';
   const ETHERSCAN_API_URL = 'https://api-sepolia.etherscan.io/api';
 
+  const [ethPrice, setEthPrice] = useState(null);
+const [ethChange, setEthChange] = useState(null);
+
+const fetchEthPrice = async () => {
+  try {
+    const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true');
+    const data = await res.json();
+    setEthPrice(data.ethereum.usd);
+    setEthChange(data.ethereum.usd_24h_change.toFixed(2));
+  } catch (err) {
+    console.error('Error fetching ETH price:', err);
+  }
+};
+
+useEffect(() => {
+  fetchEthPrice();
+  const interval = setInterval(fetchEthPrice, 30000); // every 30s
+  return () => clearInterval(interval);
+}, []);
+
+
   const connectWallet = async () => {
     if (typeof window.ethereum === 'undefined') {
       alert('MetaMask is not installed');
@@ -147,6 +168,27 @@ function App() {
 
         {account && (
           <>
+          {ethPrice && (
+  <motion.div
+    className="bg-[#141627] p-4 mb-6 rounded-xl shadow-lg border border-[#4a5cff] flex items-center justify-between"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3 }}
+    {...hoverGlow}
+  >
+    <div>
+      <h3 className="text-lg font-semibold text-white">🌐 Live Ethereum Price</h3>
+      <p className="text-gray-300 text-sm mt-1">Data updates every 30 seconds</p>
+    </div>
+    <div className="text-right">
+      <p className="text-2xl font-bold text-[#4a5cff]">${ethPrice.toFixed(2)}</p>
+      <p className={`text-sm font-medium ${ethChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+        {ethChange >= 0 ? '▲' : '▼'} {Math.abs(ethChange)}%
+      </p>
+    </div>
+  </motion.div>
+)}
+
             <motion.div
               className="bg-[#1b1e35] p-6 rounded-xl shadow-lg mb-6 border border-gray-700"
               initial={{ opacity: 0, y: 20 }}
