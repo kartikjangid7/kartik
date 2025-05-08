@@ -1,12 +1,25 @@
-# React + Vite
+# Crypto Wallet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Crypto Wallet** built using **React** and **Vite**. It allows users to interact with the Ethereum blockchain and manage their cryptocurrency wallet.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- View wallet balance.
+- Send Ethereum transactions.
+- Display transaction history.
+- Integrates with the Ethereum network via `ethers.js`.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**: Frontend UI framework.
+- **Vite**: Build tool and development server.
+- **ethers.js**: Ethereum library for wallet management and interactions with the Ethereum blockchain.
+- **Framer Motion**: For smooth animations.
+- **React Icons**: For icons.
+
+## Installation
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/kartikjangid7/kartik.git
