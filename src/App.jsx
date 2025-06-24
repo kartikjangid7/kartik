@@ -40,7 +40,7 @@ const fetchEthPrice = async () => {
 
 useEffect(() => {
   fetchEthPrice();
-  const interval = setInterval(fetchEthPrice, 30000); // every 30s
+  const interval = setInterval(fetchEthPrice, 30000); 
   return () => clearInterval(interval);
 }, []);
 
