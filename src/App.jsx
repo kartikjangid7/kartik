@@ -3,6 +3,8 @@ import { ethers } from 'ethers';
 import { motion } from 'framer-motion';
 import { FaCopy } from 'react-icons/fa'; 
 import './App.css';
+import { Analytics } from "@vercel/analytics/react";
+
 
 const hoverGlow = {
   whileHover: {
@@ -301,6 +303,7 @@ useEffect(() => {
       <footer className="bg-[#0f1123] text-center text-gray-400 py-4 border-t border-gray-700">
         <p>&copy; {new Date().getFullYear()} CryptWallet. All rights reserved.</p>
       </footer>
+       <Analytics />
     </div>
   );
 }
