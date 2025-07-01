@@ -133,19 +133,20 @@ useEffect(() => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gradient-to-r from-[#0f1123] to-[#0d0f20] text-white">
+    <div className="px-6 py-4 min-h-screen flex flex-col justify-between bg-gradient-to-r from-[#0f1123] to-[#0d0f20] text-white">
       <nav className="px-6 py-4 flex justify-between items-center shadow-md bg-opacity-80 bg-[#0f1123]">
       <img src="ethereum-eth-logo.png" alt="Ethereum Logo" className="w-8 h-8 mr-2" />
         <div className="text-xl font-bold text-white"> CryptWallet</div>
         <button
           onClick={connectWallet}
-          className="bg-[#4a5cff] hover:bg-[#3f4edc] transition px-4 py-2 rounded-md font-medium"
+          className="bg-[#4a5cff] flex-shrink-0 hover:bg-[#3f4edc] transition px-4 py-2 rounded-md font-medium"
         >
           {account ? 'Connected' : 'Connect Wallet'}
         </button>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-12">
+
         <section className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
             Cryptocurrency Perfect <span className="text-[#4a5cff]">Investment</span>
